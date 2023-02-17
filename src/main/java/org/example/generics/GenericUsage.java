@@ -40,10 +40,18 @@ public class GenericUsage {
 
         System.out.println(crate);
 
+        Crate<Box<?>> crate2 = new Crate<>();
+
         List<Integer> numbers = new Random()
                 .ints(1, 500)
                 .limit(100)
                 .boxed()
                 .collect(Collectors.toList());
+
+        System.out.println(numbers);
+
+        numbers.forEach(number -> crate2.addBox(new Box<>(number)));
+
+        System.out.println(crate2);
     }
 }
